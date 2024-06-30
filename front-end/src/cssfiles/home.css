@@ -1,0 +1,30 @@
+.individualItems {
+  display: flex;
+  justify-content: space-between; /* Align items at opposite ends */
+  margin: 10px;
+  padding: 10px;
+  background-color: whitesmoke;
+  color: black;
+  width: 330px; /* Adjust width as needed */
+  border: 2px solid black;
+}
+
+.setsContainer {
+  display: flex;
+  align-items: center; /* Align items vertically within setsContainer */
+}
+
+.icon {
+  margin: 0 5px; /* Adjust margins for icons */
+}
+
+.whole {
+  display: flex;
+  justify-content: center;
+}
+.plus {
+  background-color: greenyellow;
+}
+.minus {
+  background-color: red;
+}

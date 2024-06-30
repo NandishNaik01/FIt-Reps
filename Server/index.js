@@ -21,7 +21,9 @@ app.post("/", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  WorkoutModel.find()
+    .then((result) => res.json(result))
+    .catch((err) => console.log(err));
 });
 
 const port = 3001;

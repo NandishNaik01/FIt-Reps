@@ -1,12 +1,19 @@
 // import React from 'react'
 import { useState } from "react";
 import "../cssfiles/head.css";
+import axios from "axios";
+// const axios = require("axios");
+
 function Head() {
-  const [name, setName] = useState("");
+  const [workout, setWorkout] = useState("");
   const [sets, setSets] = useState("");
   function addwork() {
-    console.log(name);
-    console.log(sets);
+    axios
+      .post("http://localhost:3001/", { workout: workout, sets: sets })
+      .then((result) => console.log(result))
+      .then((err) => {
+        console.log(err);
+      });
   }
   return (
     <div>
@@ -20,7 +27,7 @@ function Head() {
             placeholder="Workout name"
             className="inputfields"
             onChange={(e) => {
-              setName(e.target.value);
+              setWorkout(e.target.value);
             }}
           />
           <input
@@ -43,6 +50,7 @@ function Head() {
           </button>
         </div>
       </div>
+      {/* hello */}
     </div>
   );
 }
