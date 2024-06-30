@@ -49,7 +49,7 @@ function AllComp() {
       <Head />
       {workoutDetails.length === 0 ? (
         <div>
-          <h2>NO records</h2>
+          <h2 style={{ textAlign: "center" }}>NO records</h2>
         </div>
       ) : (
         workoutDetails.map((workouts) => (
@@ -58,19 +58,37 @@ function AllComp() {
               <p>{workouts.workout}</p>
               <div className="setsContainer">
                 {workouts.sets <= 9 ? (
-                  <div className="setsContainer">
-                    <button
-                      className="icon minus"
-                      onClick={() => decreasectr(workouts._id)}>
-                      &#8722;
-                    </button>
-                    <p>0{workouts.sets}</p>
-                    <button
-                      className="icon plus"
-                      onClick={() => increasectr(workouts._id)}>
-                      &#43;
-                    </button>
-                  </div>
+                  workouts.sets === 0 ? (
+                    <div className="setsContainer">
+                      <button
+                        className="icon minus"
+                        onClick={() => decreasectr(workouts._id)}>
+                        &#8722;
+                      </button>
+                      <p>
+                        <strike>Done &#10003;</strike>
+                      </p>
+                      <button
+                        className="icon plus"
+                        onClick={() => increasectr(workouts._id)}>
+                        &#43;
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="setsContainer">
+                      <button
+                        className="icon minus"
+                        onClick={() => decreasectr(workouts._id)}>
+                        &#8722;
+                      </button>
+                      <p>0{workouts.sets}</p>
+                      <button
+                        className="icon plus"
+                        onClick={() => increasectr(workouts._id)}>
+                        &#43;
+                      </button>
+                    </div>
+                  )
                 ) : (
                   <div className="setsContainer">
                     <button
